@@ -22,9 +22,9 @@ public class BaseDao {
 	}
 	/**
 	 * 释放资源
-	 * @param 结果集
-	 * @param PreparedStatement对象
-	 * @param 结果集
+	 * @param rs 结果集
+	 * @param conn PreparedStatement对象
+	 * @param pstmt 结果集
 	 */
 	public void closeAll(Connection conn, PreparedStatement pstmt,ResultSet rs){
 		if(rs != null){

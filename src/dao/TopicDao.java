@@ -15,5 +15,5 @@ public interface TopicDao {
 
     public int updateTopic(Topic topic);
 
-    public int findCountTopic(int page,int boardId);
+    public int findCountTopic(int boardId);
 }

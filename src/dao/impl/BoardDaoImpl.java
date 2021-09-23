@@ -14,13 +14,18 @@ import java.util.Map;
 
 
 public class BoardDaoImpl extends BaseDao implements BoardDao {
-    private Connection conn = null;
-    private PreparedStatement pstmt =null;
-    private ResultSet rs = null;
-    private HashMap map = new HashMap();
+    private Connection conn = null;                 //用于保存数据库连接
+    private PreparedStatement pstmt =null;          //用于执行SQL语句
+    private ResultSet rs = null;                    //用户保存查询结果集
+    private HashMap map = new HashMap();            //保存板块信息
     private int parentId = 0;
     private List sonList = null;
 
+    /**
+     * 查找板块
+     *
+     * @return 封装了板块信息的Map
+     */
     public Map findBoard() {
         String sql = "select * from TBL_BOARD order by parentId,boardId";
 
@@ -50,6 +55,11 @@ public class BoardDaoImpl extends BaseDao implements BoardDao {
         return map;
     }
 
+    /**
+     * 根据板块id查找板块
+     * @param boardId
+     * @return
+     */
     @Override
     public Board findBoard(int boardId) {
         return null;

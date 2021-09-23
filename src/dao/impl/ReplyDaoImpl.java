@@ -15,11 +15,21 @@ public class ReplyDaoImpl extends BaseDao implements ReplyDao {
     private PreparedStatement pstmt = null;
     private ResultSet rs =null;
 
+    /**
+     * 根据回复ID查找回复
+     * @param replyId
+     * @return 回复
+     */
     @Override
     public Reply findReply(int replyId) {
         return null;
     }
 
+    /**
+     * 添加回复
+     * @param reply
+     * @return 回复数量
+     */
     @Override
     public int addReply(Reply reply) {
         List list = new ArrayList();
@@ -44,21 +54,42 @@ public class ReplyDaoImpl extends BaseDao implements ReplyDao {
         return 0;
     }
 
+    /**
+     * 删除回复
+     * @param replyId
+     * @return
+     */
     @Override
     public int deleteReply(int replyId) {
         return 0;
     }
 
+    /**
+     * 更新回复
+     * @param reply
+     * @return
+     */
     @Override
     public int updateReply(Reply reply) {
         return 0;
     }
 
+    /**
+     * 返回某主题的第page页回复列表
+     * @param page
+     * @param topicId
+     * @return
+     */
     @Override
     public List findListReply(int page, int topicId) {
         return null;
     }
 
+    /**
+     * 返回某主题的回复数
+     * @param topicId
+     * @return
+     */
     @Override
     public int findCountReply(int topicId) {
         return 0;

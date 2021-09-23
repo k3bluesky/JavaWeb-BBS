@@ -14,16 +14,56 @@ public class TopicDaoImpl extends BaseDao implements TopicDao {
     private PreparedStatement pstmt = null;
     private ResultSet rs =null;
 
+    /**
+     * 添加主题
+     * @param topic
+     * @return 增加条数
+     */
+    @Override
+    public int addTopic(Topic topic) {
+        return 0;
+    }
+
+    /**
+     * 删除主题
+     * @param topicId
+     * @return 删除条数
+     */
+    @Override
+    public int deleteTopic(int topicId) {
+        return 0;
+    }
+
+    /**
+     * 更新主题
+     * @param topic
+     * @return 更新条数
+     */
+    @Override
+    public int updateTopic(Topic topic) {
+        return 0;
+    }
+
+    /**
+     * 查找一个主题的详情信息
+     * @param topicId
+     * @return
+     */
     @Override
     public Topic findTopic(int topicId) {
         return null;
     }
 
+    /**
+     * 查找主题List
+     * @param page
+     * @return 主题List
+     */
     @Override
     public List findListTopic(int page, int boardId) {
         List list = new ArrayList();
         int rowBegin = 0;
-        if (page>1){
+        if (page > 1) {
             rowBegin = 20 * (page - 1);
         }
         String sql = "select top 20 * from TBL_TOPIC where boardId=" + boardId
@@ -42,31 +82,20 @@ public class TopicDaoImpl extends BaseDao implements TopicDao {
                 topic.setUserId(rs.getInt("userId"));
                 list.add(topic);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            this.closeAll(conn,pstmt,rs);
+        } finally {
+            this.closeAll(conn, pstmt, rs);
         }
         return list;
     }
 
-    @Override
-    public int addTopic(Topic topic) {
-        return 0;
-    }
-
-    @Override
-    public int deleteTopic(int topicId) {
-        return 0;
-    }
-
-    @Override
-    public int updateTopic(Topic topic) {
-        return 0;
-    }
-
-    @Override
-    public int findCountTopic(int page, int boardId) {
+    /**
+     * 根据板块ID取得该板块的主题数
+     * @param boardId
+     * @return 主题数
+     */
+    public int findCountTopic(int boardId) {
         return 0;
     }
 }
