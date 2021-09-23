@@ -54,14 +54,6 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 			conn = this.getConn();
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				Topic topic = new Topic();
-				topic.setTopicId(rs.getInt("topicId"));
-				topic.setTitle(rs.getString("title"));
-				topic.setPublishTime(rs.getDate("publishTime"));
-				topic.setUserId(rs.getInt("userId"));
-				list.add(topic);
-			}
 		}catch (Exception e){
 			e.printStackTrace();
 		}finally {
