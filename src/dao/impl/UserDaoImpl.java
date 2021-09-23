@@ -67,7 +67,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 	 * @param userId
 	 * @return
 	 */
-	@Override
+
 	public User findUser(int userId) {
 		String sql = "select userId,userName,head,gender,regTime from TBL_USER where userId = " + userId;
 		try {
