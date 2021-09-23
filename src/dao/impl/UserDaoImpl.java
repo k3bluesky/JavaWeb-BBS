@@ -69,7 +69,16 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 	 */
 	@Override
 	public User findUser(int userId) {
-		// TODO Auto-generated method stub
+		String sql = "select userId,userName,head,gender,regTime from TBL_USER where userId = " + userId;
+		try {
+			conn = this.getConn();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			this.closeAll(conn,pstmt,rs);
+		}
 		return null;
 	}
 
