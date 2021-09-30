@@ -50,7 +50,7 @@ public class BoardDaoImpl extends BaseDao implements BoardDao {
         }catch (Exception e){
             e.printStackTrace();
         }finally {
-            closeAll(conn,pstmt,rs);
+            this.closeAll(conn,pstmt,rs);
         }
         return map;
     }
@@ -62,6 +62,19 @@ public class BoardDaoImpl extends BaseDao implements BoardDao {
      */
     @Override
     public Board findBoard(int boardId) {
-        return null;
+        Board board = new Board();
+        String sql =
+                "select boardName from TBL_BOARD where boardId = " + boardId;
+        try{
+            conn = this.getConn();
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+            board.setBoardName(rs.getString("boardName"));
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            this.closeAll(conn,pstmt,rs);
+        }
+        return board;
     }
 }
