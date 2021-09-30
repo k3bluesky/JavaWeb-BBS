@@ -58,7 +58,7 @@ public class BoardDaoImpl extends BaseDao implements BoardDao {
     /**
      * 根据板块id查找板块
      * @param boardId
-     * @return
+     * @return 板块名
      */
     @Override
     public Board findBoard(int boardId) {

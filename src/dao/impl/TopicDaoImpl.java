@@ -126,7 +126,7 @@ public class TopicDaoImpl extends BaseDao implements TopicDao {
     /**
      * 根据板块ID取得该板块的主题数
      * @param boardId
-     * @return 主题数
+     * @return 主题数量
      */
     public int findCountTopic(int boardId) {
         String sql =

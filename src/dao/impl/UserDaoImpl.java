@@ -71,7 +71,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 	/**
 	 * 根据用户ID查找用户
 	 * @param userId
-	 * @return
+	 * @return 用户信息
 	 */
 
 	public User findUser(int userId) {
