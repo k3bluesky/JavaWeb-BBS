@@ -41,7 +41,7 @@ public class TopicDaoImpl extends BaseDao implements TopicDao {
     @Override
     public int deleteTopic(int topicId) {
         String sql =
-                "delede from TBL_TOPIC where topicId = "+ topicId ;
+                "delete from TBL_TOPIC where topicId = "+ topicId ;
         String[] param = {};
         return this.executeSQL(sql, param);
     }
