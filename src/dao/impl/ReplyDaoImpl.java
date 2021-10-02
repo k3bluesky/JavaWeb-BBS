@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -97,8 +98,23 @@ public class ReplyDaoImpl extends BaseDao implements ReplyDao {
             conn = this.getConn();
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
-
+            while (rs.next()) {
+                Reply reply = new Reply();
+                reply.setReplyId(rs.getInt("replyId"));
+                reply.setContent(rs.getString("content"));
+                reply.setUserId(rs.getInt("userId"));
+                reply.setBoardId(rs.getInt("boardId"));
+                reply.setTitle(rs.getString("title"));
+                reply.setPublishTime(rs.getDate("publishTime"));
+                reply.setModifyTime(rs.getDate("modifyTime"));
+                list.add(reply);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            closeAll(conn,pstmt,rs);
         }
+        return list;
     }
 
     /**
@@ -108,6 +124,9 @@ public class ReplyDaoImpl extends BaseDao implements ReplyDao {
      */
     @Override
     public int findCountReply(int topicId) {
-        return 0;
+        String sql =
+                "select * from TBL_REPLY where topicId = " + topicId;
+        String[] param = {};
+        return this.executeSQL(sql,param);
     }
 }
