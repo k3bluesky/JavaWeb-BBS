@@ -73,7 +73,7 @@ public class TopicDaoImpl extends BaseDao implements TopicDao {
         try{
             conn = this.getConn();
             pstmt= conn.prepareStatement(sql);
-            rs = pstmt.executeQuery();
+            rs = pstmt.executeQuery();rs.next();
             topic.setTopicId(rs.getInt("topicId"));
             topic.setTitle(rs.getString("title"));
             topic.setPublishTime(rs.getDate("publishTime"));
@@ -95,14 +95,13 @@ public class TopicDaoImpl extends BaseDao implements TopicDao {
     @Override
     public List findListTopic(int page, int boardId) {
         List list = new ArrayList();
-        int rowBegin = 0;
-        if (page > 1) {
-            rowBegin = 20 * (page - 1);
-        }
-        String sql = "select top 20 * from TBL_TOPIC where boardId=" + boardId
-                + "and topicId not in (select tp " + rowBegin
-                + "topicId from TBL_TOPIC where boardId=" + boardId
-                + "order by publishTime desc ) order by publishTime desc";
+//        int rowBegin = 0;
+//        int rowFinal = 20;
+//        if (page > 1) {
+//            rowBegin = 20 * (page - 1);
+//            rowFinal = 20 * page;
+//        }
+        String sql = "select * from TBL_TOPIC where boardId= "+  boardId;
         try {
             conn = this.getConn();
             pstmt = conn.prepareStatement(sql);
@@ -112,7 +111,7 @@ public class TopicDaoImpl extends BaseDao implements TopicDao {
                 topic.setTopicId(rs.getInt("topicId"));
                 topic.setTitle(rs.getString("title"));
                 topic.setPublishTime(rs.getDate("publishTime"));
-                topic.setUserId(rs.getInt("userId"));
+                topic.setUserId(rs.getInt("uId"));
                 list.add(topic);
             }
         } catch (Exception e) {

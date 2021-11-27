@@ -8,7 +8,8 @@
           <element id="module-output" name="JavaWeb-BBS" />
         </element>
         <element id="directory" name="lib">
-          <element id="file-copy" path="D:/java web/BBS web/MyWeb/WebRoot/WEB-INF/lib/sqljdbc4.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/mysql-connector-java-8.0.27/mysql-connector-java-8.0.27.jar" />
+          <element id="library" level="project" name="jstl-1.2" />
         </element>
       </element>
     </root>

@@ -5,36 +5,39 @@
 		<title></title>
 	</head>
 	<body>
-		<form >
-			<h1 align="center">校园BBS</h1>
-			<table>
-				<tr>
-					<td>您尚未<a href="login.html">登录</td>
-					<td>|</td>
-					<td><a href="reg.html">注册</td>
-					<td>|</td>
-				</tr>
-			</table>
-			<table>
-				<tr>
-					<td>>>><a href="index.html">论坛首页</td>
-					<td>>><a href="index.html">C#语言</td>
-				</tr>
-			</table>
-			<table border="1" cellspacing="" cellpadding="">
-				<tr><th align="left">发表帖子</th></tr>
-				<tr><td>
-				<table>
-					<tr><td align="right">标题</td><td><input type="text" id="title" /></td></tr>
-					<tr><td align="right">内容</td><td><textarea rows="10" cols="50"></textarea></td></tr>
-					<tr><td></td><td>(不能大于：1000字)</td></tr>
-				</table></td>
-				</tr>
-			</table>
-			<table>
-				<tr><td><input type="button" value="提交" /></td><td><input type="button" value="重置" /></td></tr>
-			</table>
+		<div align="center">
+			<font size="6" color="skyblue">校园BBS系统</font>
+		</div>
+		<%
+		if(session.getAttribute("user")==null){
+		%>
+		<div>
+			您尚未<a href="login.jsp">登录</a>|<a href="reg.jsp">注册</a>
+		</div>
+		<%
+		} else{
+		%>
+		<div style="text-align: left">
+			${sessionScope.user.userName},欢迎你！
+		</div>
+		<% }%>
+		<p>>><a href="index.html"> 论坛首页 </a>
+			>><a href="index.html"> C#语言 </p></a>
+	<div style="background-color: aliceblue;">
+		<font size="" color="skyblue">发表帖子</font>
+		</div>
 			
-		</form>
+		</div>
+		<form>
+			<table>
+				<tr>
+					<td><th>内容</th></td><td><textarea rows="5" cols="21"></textarea></td>
+				</tr>
+				<tr>
+					<td></td><td>（不能大于：1000字）</td>
+				</tr>
+				<tr>
+					<td align="center"><button>提交</button></td><td><button>重置</button></td>
+				</tr>
+			</table>
 	</body>
-</html>

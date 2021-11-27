@@ -68,8 +68,9 @@ public class BoardDaoImpl extends BaseDao implements BoardDao {
         try{
             conn = this.getConn();
             pstmt = conn.prepareStatement(sql);
-            rs = pstmt.executeQuery();
+            rs = pstmt.executeQuery();rs.next();
             board.setBoardName(rs.getString("boardName"));
+
         }catch (Exception e){
             e.printStackTrace();
         }finally {

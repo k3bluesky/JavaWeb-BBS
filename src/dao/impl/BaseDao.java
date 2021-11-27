@@ -4,10 +4,10 @@ import java.sql.*;
 
 
 public class BaseDao {
-	public final static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-	public final static String url = "jdbc:sqlserver://localhost:1433;DataBaseName=bbs";
-	public final static String dbName = "sa";  //数据库用户名
-	public final static String dbPass = "sa"; //数据库密码
+	public final static String driver = "com.mysql.cj.jdbc.Driver";
+	public final static String url = "jdbc:mysql://localhost:3306/bbs";
+	public final static String dbName = "root";  //数据库用户名
+	public final static String dbPass = "976457598"; //数据库密码
 	/**
 	 * 得到数据库连接
 	 * 

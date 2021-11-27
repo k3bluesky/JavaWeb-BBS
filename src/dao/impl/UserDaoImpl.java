@@ -24,7 +24,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 	@Override
 	public int addUser(User user) {
 		String sql =
-				"insert into TBL_USER(username,userpass,gender,head,regTime) values(?,?,"+ user.getGender()+",?,?)";
+				"insert into TBL_USER(uName,uPass,head,regTime,gender) values(?,?,?,?,"+ user.getGender()+")";
 		String time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 		String[] param = {user.getUserName(),user.getUserPass(),user.getHead(),time};
 		return this.executeSQL(sql, param);
@@ -37,7 +37,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 	 */
 	@Override
 	public int updateUser(User user) {
-		String sql = "update TBL_USER(userpass) set userPass = ? where userId = " + user.getUserId();
+		String sql = "update TBL_USER set userPass = ? where userId = " + user.getUserId();
 		String[] param ={user.getUserPass()};
 		return this.executeSQL(sql,param);
 	}
@@ -50,16 +50,17 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 	@Override
 	public User findUser(String userName) {
 		User user = new User();
-		String sql = "select userId,userName,head,gender,regTime from TBL_USER where userName = " + userName;
+		String sql = "select uId,uName,uPass,head,regTime,gender from TBL_USER where uName = \"" + userName + "\"";
 		try {
 			conn = this.getConn();
 			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			user.setUserId(rs.getInt("userId"));
-			user.setUserName(rs.getString("userName"));
+			rs = pstmt.executeQuery();rs.next();
+			user.setUserId(rs.getInt("uId"));
+			user.setUserName(rs.getString("uName"));
+			user.setUserPass(rs.getString("uPass"));
 			user.setHead(rs.getString("head"));
-			user.setGender(rs.getInt("gender"));
 			user.setRegTime(rs.getDate("regTime"));
+			user.setGender(rs.getInt("gender"));
 		}catch (Exception e){
 			e.printStackTrace();
 		}finally {
@@ -76,16 +77,17 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
 	public User findUser(int userId) {
 		User user = new User();
-		String sql = "select userId,userName,head,gender,regTime from TBL_USER where userId = " + userId;
+		String sql = "select uId,uName,uPass,head,regTime,gender from TBL_USER where uId = " + userId;
 		try {
 			conn = this.getConn();
 			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			user.setUserId(rs.getInt("userId"));
-			user.setUserName(rs.getString("userName"));
+			rs = pstmt.executeQuery();rs.next();
+			user.setUserId(rs.getInt("uId"));
+			user.setUserName(rs.getString("uName"));
+			user.setUserPass(rs.getString("uPass"));
 			user.setHead(rs.getString("head"));
-			user.setGender(rs.getInt("gender"));
 			user.setRegTime(rs.getDate("regTime"));
+			user.setGender(rs.getInt("gender"));
 		}catch (Exception e){
 			e.printStackTrace();
 		}finally {
