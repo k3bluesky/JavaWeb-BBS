@@ -26,6 +26,7 @@ public class indexServlet extends HttpServlet {
         HttpSession session = request.getSession(true);
         session.setAttribute("mapBoard",mapBoard);
         session.setAttribute("listMainBoard",listMainBoard);
+
         request.getRequestDispatcher("/index.jsp").forward(request,response);
 
 

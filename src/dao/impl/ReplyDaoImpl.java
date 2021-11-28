@@ -2,14 +2,12 @@ package dao.impl;
 
 import dao.ReplyDao;
 import entity.Reply;
-import entity.Topic;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -49,10 +47,10 @@ public class ReplyDaoImpl extends BaseDao implements ReplyDao {
     @Override
     public int addReply(Reply reply) {
        String sql =
-               "insert into TBL_REPLY(replyId,title,content,publishTime,modifyTime,userId,boardId) values(?,?,?,?,?,"
-                       + reply.getUserId() +","+ reply.getBoardId() +")";
+               "insert into TBL_REPLY(title,content,publishTime,modifyTime,uId,topicId) values(?,?,?,?,"
+                       + reply.getUserId() +","+ reply.getTopicId() +")";
        String time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-       String[] param = {String.valueOf(reply.getReplyId()),reply.getTitle(),reply.getContent(),time,time};
+       String[] param = {reply.getTitle(),reply.getContent(),time,time};
        return this.executeSQL(sql,param);
     }
 
@@ -85,15 +83,14 @@ public class ReplyDaoImpl extends BaseDao implements ReplyDao {
 
     /**
      * 返回某主题的第page页回复列表
-     * @param page
      * @param topicId
      * @return
      */
     @Override
-    public List findListReply(int page, int topicId) {
+    public List findListReply(int topicId) {
         List list = new ArrayList();
         String sql =
-                "select * from TBL_REPLY where topicId = " + topicId + "and page = " + page ;
+                "select * from TBL_REPLY where topicId = " + topicId;
         try {
             conn = this.getConn();
             pstmt = conn.prepareStatement(sql);
@@ -102,8 +99,8 @@ public class ReplyDaoImpl extends BaseDao implements ReplyDao {
                 Reply reply = new Reply();
                 reply.setReplyId(rs.getInt("replyId"));
                 reply.setContent(rs.getString("content"));
-                reply.setUserId(rs.getInt("userId"));
-                reply.setBoardId(rs.getInt("boardId"));
+                reply.setUserId(rs.getInt("uId"));
+                reply.setTopicId(rs.getInt("topicId"));
                 reply.setTitle(rs.getString("title"));
                 reply.setPublishTime(rs.getDate("publishTime"));
                 reply.setModifyTime(rs.getDate("modifyTime"));

@@ -26,10 +26,10 @@ public class TopicDaoImpl extends BaseDao implements TopicDao {
     @Override
     public int addTopic(Topic topic) {
         String sql =
-                "insert into TBL_TOPIC(topicId,title,content,publishTime,modifyTime,userId,boardId) values(?,?,?,?,?,"+
+                "insert into TBL_TOPIC(title,content,publishTime,modifyTime,uId,boardId) values(?,?,?,?,"+
                         topic.getUserId() +","+ topic.getBoardId() +")";
         String time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-        String[] param = {String.valueOf(topic.getTopicId()),topic.getTitle(),topic.getContent(),time,time};
+        String[] param = {topic.getTitle(),topic.getContent(),time,time};
         return this.executeSQL(sql, param);
     }
 
@@ -69,7 +69,7 @@ public class TopicDaoImpl extends BaseDao implements TopicDao {
     public Topic findTopic(int topicId) {
         Topic topic = new Topic();
         String sql =
-                "select title from TBL_TOPIC where topicId =" + topicId;
+                "select * from TBL_TOPIC where topicId =" + topicId;
         try{
             conn = this.getConn();
             pstmt= conn.prepareStatement(sql);

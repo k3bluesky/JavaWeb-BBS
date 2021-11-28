@@ -1,13 +1,7 @@
 <%@ page import="entity.Topic" %>
-<%@ page import="dao.TopicDao" %>
-<%@ page import="dao.impl.TopicDaoImpl" %>
-<%@ page import="java.util.Map" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.sun.tools.javac.Main" %>
 <%@ page import="dao.ReplyDao" %>
-<%@ page import="dao.impl.ReplyDaoImpl" %>
 <%@ page import="dao.BoardDao" %>
-<%@ page import="dao.impl.BoardDaoImpl" %>
 <%@ page import="entity.User" %>
 <%@ page import="dao.impl.UserDaoImpl" %>
 <%@ page import="dao.UserDao" %><%--
@@ -32,20 +26,32 @@
         </font>
     </div>
     <%
-        int boardId = (int) request.getAttribute("boardId");
-        BoardDao boardDao = (BoardDao) request.getAttribute("boardDao");
-        List topicList = (List) request.getAttribute("topicList");
-        ReplyDao replyDao= (ReplyDao) request.getAttribute("replyDao");
+        int boardId = (int) session.getAttribute("boardId");
+        BoardDao boardDao = (BoardDao) session.getAttribute("boardDao");
+        List topicList = (List) session.getAttribute("topicList");
+        ReplyDao replyDao= (ReplyDao) session.getAttribute("replyDao");
     %>
-    <div style="background-color: aliceblue;">
-        您尚未<a href="login.jsp">登录</a>|<a href="reg.jsp">注册</a>|
-    </div>
-    <p>
-        >>><a href="index.jsp">论坛首页</a>>><a href="index.jsp"><%= boardDao.findBoard(boardId).getBoardName()%></a>
-    </p>
+    <%
+        if(session.getAttribute("user")==null){
+    %>
     <div>
-        <input type="button" value="发表话题" />
+        您尚未<a href="login.jsp">登录</a>|<a href="reg.jsp">注册</a>
     </div>
+    <%
+    } else{
+    %>
+    <div style="text-align: left">
+        ${sessionScope.user.userName},欢迎你！
+    </div>
+    <% }%>
+    <p>
+        >>><a href="index.jsp">论坛首页</a>>><a href="/s/list?boardId=<%= boardId%>"><%= boardDao.findBoard(boardId).getBoardName()%></a>
+    </p>
+    <form action="/s/list" method="post">
+    <div>
+        <input type="submit" value="发表话题" />
+    </div>
+    </form>
     <div>
         <a href="">上一页</a>|<a href="">下一页</a>
     </div>
@@ -59,7 +65,7 @@
                 UserDao findUser = new UserDaoImpl();
                 User user = findUser.findUser(mainTopic.getUserId());
         %>
-        <tr><td><%=i+1 %></td><td><a href="list.jsp?boardId=<%= boardId%>&<%= mainTopic.getTopicId()%>"><%=mainTopic.getTitle() %></a></td><td><%=user.getUserName() %></a></td><td><%=replyDao.findCountReply(mainTopic.getTopicId())%></td></tr>
+        <tr><td><%=i+1 %></td><td><a href="detail?boardId=<%= boardId%>&topicId=<%= mainTopic.getTopicId()%>"><%=mainTopic.getTitle() %></a></td><td><%= user.getUserName() %></td><td><%=replyDao.findCountReply(mainTopic.getTopicId())%></td></tr>
         <%} %>
     </table>
     <table>

@@ -9,7 +9,7 @@ public class Reply {
 	private Date publishTime;
 	private Date modifyTime;
 	private int userId;
-	private int boardId;
+	private int topicId;
 	
 	public int getUserId() {
 		return userId;
@@ -17,11 +17,11 @@ public class Reply {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	public int getBoardId() {
-		return boardId;
+	public int getTopicId() {
+		return topicId;
 	}
-	public void setBoardId(int boardId) {
-		this.boardId = boardId;
+	public void setTopicId(int topicId) {
+		this.topicId = topicId;
 	}
 	public int getReplyId() {
 		return replyId;

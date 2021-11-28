@@ -11,7 +11,7 @@
 			<font size="6" color="skyblue">校园BBS系统</font>
 		</div>
 	<div  style="width: 1300px;height: 30px;background-color: slateblue">
-		<p>>><a href="index.jsp"> 论坛首页 </a></p>
+		<p>>><a href="/index"> 论坛首页 </a></p>
 	</div>
 		<div align="center" style="width: 1300px; height:800px ;background-color: skyblue">
 			<table>
@@ -36,25 +36,25 @@
 				<table bgcolor="skyblue">
 					<tr>请选择头像</tr>
 					<tr>
-						<td><input type="radio" name="img" id="1.jpg" value="1.jpg"/><img width="100" src="img/1%20(1).jpg"></td>
-						<td><input type="radio" name="img" id="2.jpg" value="2.jpg"/><img width="100" src="img/1%20(10).jpg"></td>
-						<td><input type="radio" name="img" id="3.jpg" value="3.jpg"/><img width="100" src="img/1%20(11).jpg"></td>
-						<td><input type="radio" name="img" id="4.jpg" value="4.jpg"/><img width="100" src="img/1%20(12).jpg"></td>
-						<td><input type="radio" name="img" id="5.jpg" value="5.jpg"/><img width="100" src="img/1%20(13).jpg"></td>
+						<td><input type="radio" name="img" id="1.jpg" value="1.gif"/><img width="100" src="1.gif"></td>
+						<td><input type="radio" name="img" id="2.jpg" value="2.gif"/><img width="100" src="2.gif"></td>
+						<td><input type="radio" name="img" id="3.jpg" value="3.gif"/><img width="100" src="3.gif"></td>
+						<td><input type="radio" name="img" id="4.jpg" value="4.gif"/><img width="100" src="4.gif"></td>
+						<td><input type="radio" name="img" id="5.jpg" value="5.gif"/><img width="100" src="5.gif"></td>
 					</tr>
 					<tr>
-						<td><input type="radio" name="img" id="6.jpg" value="6.jpg"/><img width="100" src="img/1%20(14).jpg"></td>
-						<td><input type="radio" name="img" id="7.jpg" value="7.jpg"/><img width="100" src="img/1%20(15).jpg"></td>
-						<td><input type="radio" name="img" id="8.jpg" value="8.jpg"/><img width="100" src="img/1%20(9).jpg"></td>
-						<td><input type="radio" name="img" id="9.jpg" value="9.jpg"/><img width="100" src="img/1%20(8).jpg"></td>
-						<td><input type="radio" name="img" id="10.jpg" value="10.jpg"/><img width="100" src="img/1%20(7).jpg"></td>
+						<td><input type="radio" name="img" id="6.jpg" value="6.gif"/><img width="100" src="6.gif"></td>
+						<td><input type="radio" name="img" id="7.jpg" value="7.gif"/><img width="100" src="7.gif"></td>
+						<td><input type="radio" name="img" id="8.jpg" value="8.gif"/><img width="100" src="8.gif"></td>
+						<td><input type="radio" name="img" id="9.jpg" value="9.gif"/><img width="100" src="9.gif"></td>
+						<td><input type="radio" name="img" id="10.jpg" value="10.gif"/><img width="100" src="10.gif"></td>
 					</tr>
 					<tr>
-						<td><input type="radio" name="img" id="11.jpg" value="11.jpg"/><img width="100" src="img/1%20(6).jpg"></td>
-						<td><input type="radio" name="img" id="12.jpg" value="12.jpg"/><img width="100" src="img/1%20(5).jpg"></td>
-						<td><input type="radio" name="img" id="13.jpg" value="13.jpg"/><img width="100" src="img/1%20(4).jpg"></td>
-						<td><input type="radio" name="img" id="14.jpg" value="14.jpg"/><img width="100" src="img/1%20(3).jpg"></td>
-						<td><input type="radio" name="img" id="15.jpg" value="15.jpg"/><img width="100" src="img/1%20(2).jpg"></td>
+						<td><input type="radio" name="img" id="11.jpg" value="11.gif"/><img width="100" src="11.gif"></td>
+						<td><input type="radio" name="img" id="12.jpg" value="12.gif"/><img width="100" src="12.gif"></td>
+						<td><input type="radio" name="img" id="13.jpg" value="13.gif"/><img width="100" src="13.gif"></td>
+						<td><input type="radio" name="img" id="14.jpg" value="14.gif"/><img width="100" src="14.gif"></td>
+						<td><input type="radio" name="img" id="15.jpg" value="15.gif"/><img width="100" src="15.gif"></td>
 					</tr>
 					</table>
 					<tr>

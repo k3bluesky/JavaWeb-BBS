@@ -13,7 +13,7 @@ public interface ReplyDao {
 
     public int updateReply(Reply reply);
 
-    public List findListReply(int page ,int topicId);
+    public List findListReply(int topicId);
 
     public int findCountReply(int topicId);
 }
