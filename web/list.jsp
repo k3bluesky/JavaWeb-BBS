@@ -21,9 +21,7 @@
 <body>
 <from>
     <div align="center">
-        <font font size="6" color="skyblue">
-            校园BBS
-        </font>
+        <font size="6" color="skyblue">校园BBS系统</font>
     </div>
     <%
         int boardId = (int) session.getAttribute("boardId");

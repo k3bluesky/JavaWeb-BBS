@@ -121,9 +121,16 @@ public class ReplyDaoImpl extends BaseDao implements ReplyDao {
      */
     @Override
     public int findCountReply(int topicId) {
-        String sql =
-                "select COUNT(replyId) from TBL_REPLY where topicId = " + topicId;
-        String[] param = {};
-        return this.executeSQL(sql,param);
+//        String sql =
+//                "select COUNT(replyId) from TBL_REPLY where topicId = " + topicId;
+//        String[] param = {};
+//        try {
+//            conn = this.getConn();
+//            pstmt = conn.prepareStatement(sql);
+//            rs = pstmt.executeQuery();
+//            Reply reply= new Reply();
+//            reply.set
+//        }
+        return 0;//this.executeSQL(sql,param);
     }
 }

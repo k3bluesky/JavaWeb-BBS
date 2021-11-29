@@ -6,16 +6,18 @@
 		<title>校园BBS-登录</title>
 	</head>
 	<body bgcolor="beige"></body>
-		<img src="img/123.png" >
+	<div align="center">
+		<font size="6" color="skyblue">校园BBS系统</font>
+	</div>
 		<form action="/s/login" method="post">
-			<table>
+			<table align="center">
 				<tr>
 					<td align="right">用户名：</td>
 					<td><input type="text" name="uName"/></td>
 				</tr>
 				<tr>
 					<td align="right">密码：</td>
-					<td><input type="text" name="uPass"/></td>
+					<td><input type="password" name="uPass"/></td>
 				</tr>
 			</table>
 			<tr>

@@ -40,7 +40,7 @@ public class postServlet extends HttpServlet {
         TopicDao topicDao = new TopicDaoImpl();
         topicDao.addTopic(topic);
 
-        request.getRequestDispatcher("/post").forward(request,response);
+        request.getRequestDispatcher("/list").forward(request,response);
 
     }
 }

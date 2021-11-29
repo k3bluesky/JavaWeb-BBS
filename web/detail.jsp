@@ -35,7 +35,7 @@
 			int boardId = (int) session.getAttribute("boardId");
 			int topicId = (int) session.getAttribute("topicId");
 		%>
-		>>><a href="index.jsp">论坛首页</a>>><a href="index.jsp"><%= boardDao.findBoard(boardId).getBoardName()%></a>>><a href="detail?boardId=<%= boardId%>&topicId=<%= topicId%>"><%= topicDao.findTopic(topicId).getTitle()%></a>
+		>>><a href="index.jsp">论坛首页</a>>><a href="/s/list?boardId=<%= boardId%>"><%= boardDao.findBoard(boardId).getBoardName()%></a></a>>><a href="detail?boardId=<%= boardId%>&topicId=<%= topicId%>"><%= topicDao.findTopic(topicId).getTitle()%></a>
 		<form action="/s/detail" method="post">
 			<div>
 				<input type="submit" value="回复帖子" />

@@ -16,8 +16,9 @@
     <title>首页</title>
 </head>
 <body bgcolor="beige">
-
-<p align="center"><img src="img/123.png" /></p>
+<div align="center">
+    <font size="6" color="skyblue">校园BBS系统</font>
+</div>
 <%
     if(session.getAttribute("user")==null){
 %>

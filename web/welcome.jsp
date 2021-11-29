@@ -14,7 +14,9 @@
     <title>提示</title>
 </head>
 <body>
-<dev>欢迎注册校园BBS</dev>
+<div align="center">
+    <font size="6" color="skyblue">校园BBS系统</font>
+</div>
 <%
     String time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
     if (session.getAttribute("result")!=null){
