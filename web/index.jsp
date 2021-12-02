@@ -68,6 +68,5 @@ ${sessionScope.user.userName},欢迎你！
     <%}%>
     <%}%>
 </table>
-<hr color="aquamarine" width="80%" size="2" align="right" />
 </body>
 </html>
