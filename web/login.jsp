@@ -9,6 +9,9 @@
 	<div align="center">
 		<font size="6" color="skyblue">校园BBS系统</font>
 	</div>
+	<p style="background: skyblue">
+		>>><a href="index.jsp">论坛首页</a>
+	</p>
 		<form action="/s/login" method="post">
 			<table align="center">
 				<tr>

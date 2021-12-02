@@ -11,7 +11,7 @@
 			<font size="6" color="skyblue">校园BBS系统</font>
 		</div>
 	<div  style="width: 1300px;height: 30px;background-color: slateblue">
-		<p>>><a href="/index"> 论坛首页 </a></p>
+		<p>>><a href="/s/index"> 论坛首页 </a></p>
 	</div>
 		<div align="center" style="width: 1300px; height:800px ;background-color: skyblue">
 			<table>

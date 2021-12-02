@@ -29,8 +29,7 @@ public class regServlet extends HttpServlet {
 
         if(!Objects.equals(uPass, rePass)){
             String reason = "password error";
-            HttpSession session=request.getSession(true);
-            session.setAttribute("reason",reason);
+            request.setAttribute("reason",reason);
             request.getRequestDispatcher("/welcome.jsp").forward(request,response);
         }else {
             UserDao userDao = new UserDaoImpl();
@@ -44,8 +43,7 @@ public class regServlet extends HttpServlet {
             chkUser=userDao.findUser(uName);
             if (chkUser.getUserName()!=null){
                 String result = "success";
-                HttpSession session=request.getSession(true);
-                session.setAttribute("result",result);
+                request.setAttribute("result",result);
                 request.getRequestDispatcher("/welcome.jsp").forward(request,response);
             }
         }
